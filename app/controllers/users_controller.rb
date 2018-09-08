@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         #If condition satisfies, Store in session and redirect to another page
         redirect_to :controller => 'dashboards',
         :action => 'index', :email => email, :password => password
-      else
+      else # if values accepted and did not meet condition. It will come to else part
         @result_error = "Login Failed"
       end #params check end
     end # Request end
