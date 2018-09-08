@@ -1,0 +1,15 @@
+<h1>Login</h1>
+<h5><%= @result_error %> </h5>
+<%= form_with local: true do |form| %>
+    <p>
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+    </p>
+    <p>
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+    </p>
+    <p>
+        <%= form.submit "Login" %>
+    </p>
+<% end %>
