@@ -35,34 +35,24 @@
                     <p>
                         <%= form.email_field :email, 
                         :class => "form-control pad",
-                        :placeholder => "EMAIL"  %>
+                        :placeholder => "EMAIL",
+                        :id => "email"  %>
+                        <span id="email-label"></span>
                     </p>
                     <p>
                         <%= form.password_field :password, 
                         :class => "form-control pad",
-                        :placeholder => "PASSWORD" %>
+                        :placeholder => "PASSWORD",
+                        :id => "password" %>
+                        <span id="password-label"></span>
                     </p>
-                    <p>
-                        <%= form.submit "Login" %>
+                    <p class = "btn-line">
+                        <%= form.button fa_icon("arrow-right"), 
+                        :class => "button_login",
+                        :type => "submit",
+                        :onclick => "return login()" %>
                     </p>
                 <% end %>
-                <!-- <form action="#" method="POST" name="myForm" class="form-horizontal">
-                    <div class="form-group first-line-text">
-                        <span class="login-text">Login</span> to your account to browse through projects and explore our tools.
-                    </div>
-                    <div class="form-group">
-                        <input type="email" onfocus="emailFocus()" class="form-control pad" id="email" placeholder=" EMAIL" autocomplete="off">
-                        <span id="email-label"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" onfocus="passwordFocus()"class="form-control pad" id="password" placeholder=" PASSWORD" autocomplete="off">
-                        <span id="password-label"></span>
-                    </div>
-                    <div class="form-group btn-line">
-                        <a class="btn" type="button" onclick="login()" id="submitbtn"><i class="fa fa-arrow-right" id="icon" style="padding:5px;color:white;"></i></a>
-                        <span id="success-label"></span>
-                    </div>
-                </form>   --> 
             </div>
         </div>
     </div>
@@ -71,3 +61,51 @@
     </div>
 </div>
 </div>
+
+<script>
+   
+    function login() {
+        var email = document.getElementById("email");
+        var password =document.getElementById("password");
+        var emailLabel = document.getElementById("email-label");
+        var pwdLabel = document.getElementById("password-label");
+        var successLabel = document.getElementById("success-label");
+
+        if(isBlank(email.value))
+        {
+            emailLabel.style.display="initial";
+            emailLabel.innerHTML = "Email cant be blank";
+            emailLabel.style.color="red";
+            emailLabel.style.fontSize="15px";
+            emailLabel.style.marginTop="10px"; 
+            return false;
+        } else {
+            emailLabel.style.display = "none";
+        }
+        if(isBlank(password.value))
+        {
+            pwdLabel.style.display="initial";
+            pwdLabel.innerHTML ="password cant be blank";
+            pwdLabel.style.color="red";
+            pwdLabel.style.fontSize="15px";
+            pwdLabel.style.marginTop="10px";  
+            return false;
+        } else {
+            pwdLabel.style.display = "none";
+        }
+        
+
+        function isBlank(email)
+        {
+            if(email==""|| email==null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
