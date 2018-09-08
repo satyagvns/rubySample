@@ -1,15 +1,73 @@
-<h1>Login</h1>
-<h5><%= @result_error %> </h5>
-<%= form_with local: true do |form| %>
-    <p>
-        <%= form.label :email %>
-        <%= form.email_field :email %>
-    </p>
-    <p>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-    </p>
-    <p>
-        <%= form.submit "Login" %>
-    </p>
-<% end %>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10 white">
+        <div class="row">
+            <div class="col-sm-1">
+                <div class="col-sm-4">
+                    <%= image_tag('terra.jpg', size: "50", :class => 'logo_class') %>
+                </div>
+                <div class="col-sm-8 welcome" >
+                    <span>Terralogic</span>
+                </div>
+            </div>
+            <div class="col-sm-7 blue content">
+                <div class="splash-text">
+                    <h3 class="block-icons">Welcome to TERRALOGIC</h3>
+                    <span class="block-icons">Inkling Client</span> 
+                    <span class="block-icons">Project Admin Board</span>
+                </div>
+                <span style="display:block; margin-top: 100px">
+                    <i class="fa fa-facebook">  </i>
+                    <i class="fa fa-instagram pad-lft">  </i>
+                    <i class="fa fa-twitter pad-lft">  </i>
+                    <i class="fa fa-linkedin-square pad-lft">  </i>
+                </span>
+            </div>
+            <div class="col-sm-4 login-area text-style">
+                <div class="form-group first-line-text">
+                    <span class="login-text">Login</span> to your account to browse through projects and explore our tools.
+                </div>
+                <h5><%= @result_error %> </h5>
+                <%= form_with local: true do |form| %>
+                    <p>
+                        <%= form.email_field :email, 
+                        :class => "form-control pad",
+                        :placeholder => "EMAIL"  %>
+                    </p>
+                    <p>
+                        <%= form.password_field :password, 
+                        :class => "form-control pad",
+                        :placeholder => "PASSWORD" %>
+                    </p>
+                    <p>
+                        <%= form.submit "Login" %>
+                    </p>
+                <% end %>
+                <!-- <form action="#" method="POST" name="myForm" class="form-horizontal">
+                    <div class="form-group first-line-text">
+                        <span class="login-text">Login</span> to your account to browse through projects and explore our tools.
+                    </div>
+                    <div class="form-group">
+                        <input type="email" onfocus="emailFocus()" class="form-control pad" id="email" placeholder=" EMAIL" autocomplete="off">
+                        <span id="email-label"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" onfocus="passwordFocus()"class="form-control pad" id="password" placeholder=" PASSWORD" autocomplete="off">
+                        <span id="password-label"></span>
+                    </div>
+                    <div class="form-group btn-line">
+                        <a class="btn" type="button" onclick="login()" id="submitbtn"><i class="fa fa-arrow-right" id="icon" style="padding:5px;color:white;"></i></a>
+                        <span id="success-label"></span>
+                    </div>
+                </form>   --> 
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1">
+
+    </div>
+</div>
+</div>
