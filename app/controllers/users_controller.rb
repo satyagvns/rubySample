@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       password = params[:password]
       #Verifying the params not empty or not
       if email == "satya@terralogic.com" && password == "Satya"
+        session[:email] = email;
         #If condition satisfies, Store in session and redirect to another page
         redirect_to :controller => 'dashboards',
         :action => 'index', :email => email, :password => password
